@@ -1,0 +1,24 @@
+<form [formGroup]="myForm" (ngSubmit)="doRegister()">
+    <div class="from-group">
+        <label>Email</label>
+        <input class="form-control" 
+        [ngClass]="myForm.controls['email'].errors?'is-invalid':''"
+        formControlName="email"/>
+    </div>
+    <div class="from-group">
+        <label>Name</label>
+        <input class="form-control"
+        [ngClass]="myForm.controls['name'].errors?'is-invalid':''"
+        formControlName="name"/>
+    </div>
+    <div class="from-group">
+        <label>Password</label>
+        <input class="form-control"
+        [ngClass]="myForm.controls['password'].errors?'is-invalid':''"
+        formControlName="password"
+        />
+    </div>
+    <button class="btn btn-success"
+     type="submit" 
+     [disabled]="myForm.invalid">Register</button>
+</form>
