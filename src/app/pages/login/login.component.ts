@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   }
   public error: boolean | string = false;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -21,11 +22,15 @@ export class LoginComponent implements OnInit {
     this.error=false;
     if(this.user.email && this.user.password){
         if(this.validateEmail(this.user.email)){
-            // apelam API-ul de login
+            this.goToDashboard();
         }else{
           this.error="Email is invalid";
         }
     }
+  }
+
+  goToDashboard(){
+    this.router.navigate(['/dashboard']);
   }
 
   validateEmail(email:string){

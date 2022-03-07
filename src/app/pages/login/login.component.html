@@ -13,6 +13,12 @@
 <button class="btn btn-primary" 
 (click)="doLogin()">Login</button>
 
+<button 
+    class="btn btn-success" 
+    [routerLink]="['/register']">
+        Go to register
+</button>
+
 <div class="alert alert-danger" 
 *ngIf="error">{{error}}</div>
 <div class="alert alert-danger" 

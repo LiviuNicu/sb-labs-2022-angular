@@ -1,0 +1,6 @@
+<div *ngFor="let user of users">
+    <app-user-info 
+    [name]="user.name" 
+    (onNameClicked)="displayName($event)"></app-user-info>
+</div>
+
